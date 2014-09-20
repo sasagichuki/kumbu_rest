@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'homepages/index'
+
   resources :death_notices do
   #->Prelang (voting/acts_as_votable)
   member do
