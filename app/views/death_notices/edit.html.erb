@@ -1,6 +1,5 @@
-<h1>Editing death_notice</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @death_notice %> |
-<%= link_to 'Back', death_notices_path %>
+<%- model_class = DeathNotice -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => DeathNotice %></h1>
+</div>
+<%= render :partial => 'form' %>

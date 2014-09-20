@@ -1,27 +1,30 @@
-<h1>Listing death_notices</h1>
-
-<table>
+<%- model_class = DeathNotice -%>
+<div class="page-header">
+  <h1><%=t '.title', :default => DeathNotice %></h1>
+</div>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Date added</th>
-      <th>Client born</th>
-      <th>Client died</th>
-      <th>Eulogy</th>
-      <th>Burial date</th>
-      <th>Meeting date</th>
-      <th>Burial location</th>
-      <th>Meeting location</th>
-      <th>Client picture</th>
-      <th>Comments</th>
-      <th>User</th>
-      <th colspan="3"></th>
+      <th>ID</th>
+      <th><%= model_class.human_attribute_name(:title) %></th>
+      <th><%= model_class.human_attribute_name(:date_added) %></th>
+      <th><%= model_class.human_attribute_name(:client_born) %></th>
+      <th><%= model_class.human_attribute_name(:client_died) %></th>
+      <th><%= model_class.human_attribute_name(:eulogy) %></th>
+      <th><%= model_class.human_attribute_name(:burial_date) %></th>
+      <th><%= model_class.human_attribute_name(:meeting_date) %></th>
+      <th><%= model_class.human_attribute_name(:burial_location) %></th>
+      <th><%= model_class.human_attribute_name(:meeting_location) %></th>
+      <th><%= model_class.human_attribute_name(:client_picture) %></th>
+      <th><%= model_class.human_attribute_name(:comments) %></th>
+      <th><%= model_class.human_attribute_name(:created_at) %></th>
+      <th><%=t '.actions', :default => t("helpers.actions") %></th>
     </tr>
   </thead>
-
   <tbody>
     <% @death_notices.each do |death_notice| %>
       <tr>
+        <td><%= death_notice.id %></td>
         <td><%= death_notice.title %></td>
         <td><%= death_notice.date_added %></td>
         <td><%= death_notice.client_born %></td>
@@ -33,15 +36,21 @@
         <td><%= death_notice.meeting_location %></td>
         <td><%= death_notice.client_picture %></td>
         <td><%= death_notice.comments %></td>
-        <td><%= death_notice.user %></td>
-        <td><%= link_to 'Show', death_notice %></td>
-        <td><%= link_to 'Edit', edit_death_notice_path(death_notice) %></td>
-        <td><%= link_to 'Destroy', death_notice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%=l death_notice.created_at, format: :long %></td>
+        <td>
+          <%= link_to death_notice_path(death_notice), :class => 'btn btn-xs', :title => "#{ t('.show', :default => t('helpers.links.show')) }" do %>
+            <%= glyph 'info-sign' %>
+            <%= glyph 'pencil' %>
+          <%- end -%>
+          <%= link_to death_notice_path(death_notice), :method => :delete, :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-xs', :title => "#{ t('.destroy', :default => t('helpers.links.destroy')) }" do %>
+            <%= glyph 'remove' %>
+          <%- end -%>
+        </td>
       </tr>
     <% end %>
   </tbody>
 </table>
 
-<br>
-
-<%= link_to 'New Death notice', new_death_notice_path %>
+<%= link_to t('.new', :default => t("helpers.links.new")),
+            new_death_notice_path,
+            :class => 'btn btn-primary' %>
