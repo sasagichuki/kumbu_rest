@@ -1,0 +1,64 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @death_notice.title %>
+</p>
+
+<p>
+  <strong>Date added:</strong>
+  <%= @death_notice.date_added %>
+</p>
+
+<p>
+  <strong>Client born:</strong>
+  <%= @death_notice.client_born %>
+</p>
+
+<p>
+  <strong>Client died:</strong>
+  <%= @death_notice.client_died %>
+</p>
+
+<p>
+  <strong>Eulogy:</strong>
+  <%= @death_notice.eulogy %>
+</p>
+
+<p>
+  <strong>Burial date:</strong>
+  <%= @death_notice.burial_date %>
+</p>
+
+<p>
+  <strong>Meeting date:</strong>
+  <%= @death_notice.meeting_date %>
+</p>
+
+<p>
+  <strong>Burial location:</strong>
+  <%= @death_notice.burial_location %>
+</p>
+
+<p>
+  <strong>Meeting location:</strong>
+  <%= @death_notice.meeting_location %>
+</p>
+
+<p>
+  <strong>Client picture:</strong>
+  <%= @death_notice.client_picture %>
+</p>
+
+<p>
+  <strong>Comments:</strong>
+  <%= @death_notice.comments %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @death_notice.user %>
+</p>
+
+<%= link_to 'Edit', edit_death_notice_path(@death_notice) %> |
+<%= link_to 'Back', death_notices_path %>

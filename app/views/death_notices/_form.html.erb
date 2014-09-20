@@ -1,0 +1,22 @@
+<%= simple_form_for(@death_notice) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :title %>
+    <%= f.input :date_added %>
+    <%= f.input :client_born %>
+    <%= f.input :client_died %>
+    <%= f.input :eulogy %>
+    <%= f.input :burial_date %>
+    <%= f.input :meeting_date %>
+    <%= f.input :burial_location %>
+    <%= f.input :meeting_location %>
+    <%= f.input :client_picture %>
+    <%= f.input :comments %>
+    <%= f.association :user %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>

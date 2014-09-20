@@ -1,0 +1,47 @@
+<h1>Listing death_notices</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Date added</th>
+      <th>Client born</th>
+      <th>Client died</th>
+      <th>Eulogy</th>
+      <th>Burial date</th>
+      <th>Meeting date</th>
+      <th>Burial location</th>
+      <th>Meeting location</th>
+      <th>Client picture</th>
+      <th>Comments</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @death_notices.each do |death_notice| %>
+      <tr>
+        <td><%= death_notice.title %></td>
+        <td><%= death_notice.date_added %></td>
+        <td><%= death_notice.client_born %></td>
+        <td><%= death_notice.client_died %></td>
+        <td><%= death_notice.eulogy %></td>
+        <td><%= death_notice.burial_date %></td>
+        <td><%= death_notice.meeting_date %></td>
+        <td><%= death_notice.burial_location %></td>
+        <td><%= death_notice.meeting_location %></td>
+        <td><%= death_notice.client_picture %></td>
+        <td><%= death_notice.comments %></td>
+        <td><%= death_notice.user %></td>
+        <td><%= link_to 'Show', death_notice %></td>
+        <td><%= link_to 'Edit', edit_death_notice_path(death_notice) %></td>
+        <td><%= link_to 'Destroy', death_notice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Death notice', new_death_notice_path %>
