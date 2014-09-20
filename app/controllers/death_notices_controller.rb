@@ -29,6 +29,7 @@ class DeathNoticesController < ApplicationController
   # POST /death_notices.json
   def create
     @death_notice = DeathNotice.new(death_notice_params)
+    @death_notice.user = current_user
 
     respond_to do |format|
       if @death_notice.save
